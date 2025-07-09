@@ -23,11 +23,10 @@ public class WebSecurityConfig {
         return hs
                 .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/h2/**").permitAll()
-
                 .requestMatchers("/produtos/**").permitAll()
+                .requestMatchers("/produtos/novo").permitAll()
                 .anyRequest().permitAll())
                 .csrf(csrf->csrf.disable())
-                // .csrf(csrf->csrf.ignoringRequestMatchers("/h2/**"))
                 .headers(headers-> headers.frameOptions(frame->frame.disable()))
                 
         .build();

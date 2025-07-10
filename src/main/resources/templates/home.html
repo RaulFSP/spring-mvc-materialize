@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <div th:replace="~{fragments/head::head(title='Home')}"></div>
-
+<link rel="stylesheet" th:href="@{/css/card-image.css}">
 <body>
-    <div th:replace="~{fragments/navbars/main_navbar}"></div>
-    <div th:replace="~{fragments/home-body/show-products}"></div>
-    <div th:replace="~{fragments/footer::footer}"></div>
+    <header>
+        <div th:replace="~{fragments/navbars/main_navbar}"></div>
+
+    </header>
+    <main style="min-height: 100vh;">
+        <div th:replace="~{fragments/home-body/show-products}"></div>
+
+    </main>
+    
+    <div th:replace="~{fragments/footer}"></div>
 
 
     <script th:src="@{/js/materialize.js}"></script>

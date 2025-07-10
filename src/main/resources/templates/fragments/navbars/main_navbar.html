@@ -1,19 +1,17 @@
-<nav class="nav navbar orange" th:fragments="navbar">
-  <div class="nav-wrapper">
+<nav class="nav navbar orange " th:fragments="navbar">
+  <div class="nav-wrapper container">
     <a th:href="@{/}" class="brand-logo">Logo</a>
     <a href="#" data-target="mobile-demo" class="sidenav-trigger "><i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
-      <li><a th:href="@{/produtos}">Novo Produto</a></li>
-      <li><a href="badges.html">Components</a></li>
-      <li><a href="collapsible.html">Javascript</a></li>
-      <li><a href="mobile.html">Mobile</a></li>
+      <li><a  th:href="@{/}" >Home<i class="material-icons right">home</i></a></li>
+      <li><a  th:href="@{/produtos}">Novo Produto<i class="material-icons right">add</i></a></li>
     </ul>
   </div>
 </nav>
 
 <ul class="sidenav" id="mobile-demo">
+  <br>
+  <li><a th:href="@{/}">Página inicial</a></li>
   <li><a th:href="@{/produtos}">Novo Produto</a></li>
-  <li><a href="badges.html">Components</a></li>
-  <li><a href="collapsible.html">Javascript</a></li>
-  <li><a href="mobile.html">Mobile</a></li>
+
 </ul>

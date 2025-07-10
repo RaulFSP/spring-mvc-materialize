@@ -30,11 +30,10 @@ public class ProdutoService {
 
     public String postProdutoNovo(ProdutoDTOCreate dto, BindingResult result){
         if(result.hasErrors()){
-            return "/produto";
+        
+            return "produto-pagina";
         }
-        System.out.println("antes");
         produtoRepository.save(new Produto(dto));
-        System.out.println("depois");
         return "redirect:/produtos";
     }
 }

@@ -1,20 +1,20 @@
 <div th:fragments="products">
-    <div class="row container my-4">
-        <div class="card large s12 m6" th:each="dto : ${dtos}">
-            <div class="card-image">
+    <div class="row container my-6">
+        <div class="s12 m4" th:each="dto : ${dtos}">
+            <div class="card medium ">
+                <div class="card-image">
+                    <img th:src="${dto.urlImagem}">
 
-
-                <img th:src="${dto.urlImagem}" class="responsive-img">
+                </div>
+                <div class="card-content">
+                    <p th:text="${dto.nome}"></p>
+                    <p th:text="${dto.preco}"></p>
+                </div>
+                <div class="card-action center-align">
+                    <a class="p-2" href="#" style="display: block;">Detalhes</a>
+                </div>
 
             </div>
-            <div class="card-content">
-                <p th:text="${dto.nome}"></p>
-                <p th:text="${dto.preco}"></p>
-            </div>
-            <div class="card-action center-align">
-                <a class="p-2" href="#">Detalhes</a>
-            </div>
-
         </div>
 
     </div>

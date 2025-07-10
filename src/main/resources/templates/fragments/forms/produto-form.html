@@ -1,35 +1,49 @@
 <div th:fragments="form">
 
-    <form class="row container my-4" method="post" th:action="@{/produtos/novo}" th:object="${produtoDTOCreate}">
-        
-        <div class="s12 m12 input-field">
-            <i class="material-icons prefix">badge</i>
-            <input id="nome" type="text" class="validate" placeholder="nome do produto" th:field="*{nome}">
-            <label for="email">Nome</label>
+    
+        <form class="row container my-6 " method="post" th:action="@{/produtos/novo}" th:object="${produtoDTOCreate}">
 
-        </div>
-        <div class="s12 m12 input-field">
-            <i class="material-icons prefix">attach_money</i>
-            <input id="preco" type="number" step="0.01" class="validate" placeholder=" 0.99" th:field="*{preco}">
-            <label for="preco">Preço</label>
-        </div>
-        
-        <div class="input-field col s12">
-            <i class="material-icons prefix">mode_edit</i>
-            <textarea id="icon_prefix2" class="materialize-textarea" th:field="*{descricao}"></textarea>
-            <label for="icon_prefix2">Descrição</label>
-        </div>
+            <div class="s12 m12 input-field">
+                <i class="material-icons prefix">badge</i>
+                <input id="nome" type="text" class="validate" th:field="*{nome}">
+                <label for="email">Nome</label>
+                <span th:if="${#fields.hasErrors('nome')}" class="helper-text red-text center-align"
+                    th:errors="*{nome}"></span>
 
-        <div class="s12 m12 input-field">
-            <span class="material-icons prefix">add_link</span>
-            <input id="urlImagem" type="text"  class="validate" th:field="*{urlImagem}">
-            <label for="urlImagem">URL da imagem</label>
-        </div>
+            </div>
+            <div class="s12 m12 input-field">
+                <i class="material-icons prefix">attach_money</i>
+                <input id="preco" type="number" step="0.01" class="validate" th:field="*{preco}">
+                <label for="preco">Preço</label>
+                <span th:if="${#fields.hasErrors('preco')}" class="helper-text red-text center-align"
+                    th:errors="*{preco}"></span>
+            </div>
 
-        <div class="row s12 mt-4">
-            <input type="submit" value="Adicionar" class="btn s12 m6">
-            <input type="reset" class="btn s12 m6">
-        </div>
-    </form>
+            <div class="input-field col s12">
+                <i class="material-icons prefix">mode_edit</i>
+                <textarea id="icon_prefix2" class="materialize-textarea" th:field="*{descricao}"></textarea>
+                <label for="icon_prefix2">Descrição</label>
+                <span th:if="${#fields.hasErrors('descricao')}" class="helper-text red-text center-align"
+                    th:errors="*{descricao}"></span>
+            </div>
 
+            <div class="s12 m12 input-field">
+                <span class="material-icons prefix">add_link</span>
+                <input id="urlImagem" type="text" class="validate" th:field="*{urlImagem}">
+                <label for="urlImagem">URL da imagem</label>
+                <span th:if="${#fields.hasErrors('urlImagem')}" class="helper-text red-text center-align"
+                    th:errors="*{urlImagem}"></span>
+            </div>
+
+            <div class="row s12 mt-4">
+                <button type="submit" value="Adicionar" class="btn filled s12 m6 icon-right">
+                    Submit
+                    <i class="material-icons">send</i>
+                </button>
+
+                <a class="btn filled  center-align s12 m6 icon-right " th:href="@{/produtos}"><i
+                        class="material-icons">delete</i>Limpar</a>
+            </div>
+        </form>
+    
 </div>

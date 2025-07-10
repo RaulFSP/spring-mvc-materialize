@@ -37,7 +37,6 @@ public class ProdutoController {
     
     @PostMapping("/novo")
     public String novoProduto(@Valid ProdutoDTOCreate dto,BindingResult result) {
-        System.out.println(dto.toString());
         return produtoService.postProdutoNovo(dto, result);
     }
     

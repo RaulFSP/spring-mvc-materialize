@@ -10,10 +10,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import io.github.app.basic_crud.model.produto.Produto;
 import io.github.app.basic_crud.model.produto.ProdutoDTOCreate;
+import io.github.app.basic_crud.model.usuario.Usuario;
+import io.github.app.basic_crud.model.usuario.UsuarioAuthority;
 import io.github.app.basic_crud.repository.ProdutoRepository;
+import io.github.app.basic_crud.repository.UsuarioRepository;
 
 /**
  *
@@ -25,12 +29,21 @@ public class PopBanco implements CommandLineRunner {
     @Autowired
     private ProdutoRepository produtoRepository;
 
+    @Autowired
+    private UsuarioRepository usuarioRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @Override
     public void run(String... args) throws Exception {
-
+        
         var y = lista().parallelStream().map(Produto::new).toList();
-
         produtoRepository.saveAll(y);
+        Usuario u = new Usuario("adm", passwordEncoder.encode("123"), "fulano", "https://cdn.displate.com/artwork/270x380/2023-03-15/16b10ce0992b84677607920363f87e36_7c53af9d4cda734e553aec7e576732da.jpg");
+        UsuarioAuthority ua = new UsuarioAuthority("ADM", u);
+        u.getAuthorities().add(ua);
+        usuarioRepository.save(u);
     }
 
     private List<ProdutoDTOCreate> lista() {
